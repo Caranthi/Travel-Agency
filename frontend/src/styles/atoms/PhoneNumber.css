@@ -1,0 +1,18 @@
+@import "../Consts.css";
+
+.PhoneNumber{
+    color: var(--colour-text-primary-hover);
+    display: flex;
+    align-items: center;
+    margin-left: 30%;
+    width: 15%;
+}
+
+.phone{
+    scale: 175%;
+}
+
+.number{
+    font-size: var(--font-size-button);
+    margin-left: 5%;
+}

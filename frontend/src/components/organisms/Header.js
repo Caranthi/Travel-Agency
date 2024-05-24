@@ -2,6 +2,7 @@ import React from "react";
 
 import '../../styles/organisms/Header.css'
 import ClickableText from "../atoms/ClickableText";
+import PhoneNumber from "../atoms/PhoneNumber";
 
 const Header = () =>
 {
@@ -10,6 +11,7 @@ const Header = () =>
     const entertainersButton = "Lista atrakcji";
     const bargainsButton = "Promocje";
     const addOfferButton = "Dodaj ofertę";
+    const phoneNumber = "123 456 789";
 
     return(
         <div className="Header">
@@ -17,6 +19,7 @@ const Header = () =>
             <ClickableText value={offersButton}/>
             <ClickableText value={bargainsButton}/>
             <ClickableText value={entertainersButton}/>
+            <PhoneNumber value={phoneNumber}/>
         </div>
     );
 }
