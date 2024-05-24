@@ -1,0 +1,5 @@
+@import './Consts.css';
+
+.TravelAgency{
+    font-family: var(--font-style);
+}

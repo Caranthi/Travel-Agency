@@ -1,0 +1,12 @@
+@import '../Consts.css';
+
+.ClickableText {
+    color: var(--font-colour-text-primary);
+    font-size: var(--font-size-button);
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.ClickableText:hover{
+    color: var(--font-colour-text-primary-hover);
+}
