@@ -1,0 +1,17 @@
+@import "../Consts.css";
+
+.Header{
+    color: var(--colour-primary);
+    background-color: var(--colour-background);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 85px;
+    border: solid;
+}
+
+.companyName{
+    font-size: var(--font-size-title);
+    color: var(--colour-text-primary-hover);
+    margin-left: 3%;
+}

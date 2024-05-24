@@ -1,12 +1,12 @@
 import React from "react";
 import '../styles/TravelAgency.css';
 
-import ClickableText from "./atoms/ClickableText";
+import Header from "./organisms/Header";
 
 const TravelAgency = () => {
     return (
         <div className="TravelAgency">
-            <ClickableText value="OFERTY"/>
+            <Header/>
         </div>
     );
 }

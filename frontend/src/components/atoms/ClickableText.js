@@ -1,10 +1,10 @@
 import React from "react";
 import '../../styles/atoms/ClickableText.css';
 
-const ClickableText = (props) => {
+const ClickableText = ({value}) => {
 
     return (
-        <p className="ClickableText">{props.value}</p>
+        <p className="ClickableText">{value}</p>
     );
 }
 

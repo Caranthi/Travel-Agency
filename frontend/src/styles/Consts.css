@@ -2,7 +2,10 @@
     --font-style: Abril;
 
     --font-size-button: 30px;
+    --font-size-title: 44px;
 
-    --font-colour-text-primary: #007F5F;
-    --font-colour-text-primary-hover: #55A630;
+    --colour-text-primary: #007F5F;
+    --colour-text-primary-hover: #55A630;
+    --colour-primary: #AACC00;
+    --colour-background: #DDDDDD;
 }
