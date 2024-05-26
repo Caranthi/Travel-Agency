@@ -1,10 +1,10 @@
 import React from "react";
 
 import '../../styles/atoms/ButtonPrimary.css';
-const ButtonPrimary = ({value}) => {
+const ButtonPrimary = ({value, style}) => {
 
     return (
-        <button className="ButtonPrimary">{value}</button>
+        <button className="ButtonPrimary" style={style}>{value}</button>
     );
 }
 

@@ -1,0 +1,35 @@
+@import "../Consts.css";
+
+.TextWithIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 5%;
+    margin-top: -8%;
+}
+
+.TextWithIcon .label{
+    color: var(--colour-text-primary);
+    font-size: var(--font-size-button);
+}
+
+.iconWithText{
+    display: flex;
+    align-items: center;
+    border: solid var(--colour-text-primary-hover);
+    margin-top: -5%;
+    width: 98%;
+}
+
+.icon{
+    color: var(--colour-text-primary-hover);
+    scale: 200%;
+    margin-left: 5%;
+}
+
+.value{
+    color: var(--colour-text-primary);
+    font-size: var(--font-size-input);
+    margin-left: 7%;
+}
