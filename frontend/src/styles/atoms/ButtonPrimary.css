@@ -1,0 +1,10 @@
+@import "../Consts.css";
+
+.ButtonPrimary{
+    background-color: var(--colour-primary);
+    font-size: var(--font-size-button);
+    color: var(--colour-text-primary);
+    border: var(--colour-primary);
+    border-radius: 2px;
+    cursor: pointer;
+}

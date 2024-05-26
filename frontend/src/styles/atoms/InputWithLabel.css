@@ -1,0 +1,21 @@
+@import "../Consts.css";
+
+.InputWithLabel {
+    color: var(--colour-text-primary);
+    font-size: var(--font-size-input);
+    height: 106%;
+    margin-left: 1.5%;
+    width: 24%;
+}
+
+.input {
+    color: var(--colour-text-primary-hover);
+    background-color: var(--colour-background);
+    font-size: var(--font-size-input);
+    width: 75%;
+    border-radius: 3px;
+}
+
+.input::placeholder {
+    color: var(--colour-text-primary-hover);
+}

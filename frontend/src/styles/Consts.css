@@ -3,9 +3,10 @@
 
     --font-size-button: 30px;
     --font-size-title: 44px;
+    --font-size-input: 24px;
 
     --colour-text-primary: #007F5F;
     --colour-text-primary-hover: #55A630;
-    --colour-primary: #AACC00;
-    --colour-background: #DDDDDD;
+    --colour-primary: #EEEF20;
+    --colour-background: #EDEDED;
 }

@@ -1,0 +1,11 @@
+@import "../Consts.css";
+
+.Browser{
+    width: 80%;
+    height: 115px;
+    z-index: 2;
+    background-color: white;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+}

@@ -1,0 +1,7 @@
+@import "../Consts.css";
+
+.SeparatorLine{
+    background-color: var(--colour-text-primary);
+    height: 80%;
+    width: 3px;
+}
