@@ -1,17 +1,25 @@
 import React from "react";
-import '../styles/TravelAgency.css';
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
-import Header from "./organisms/Header";
-import BrowserSection from "./organisms/BrowserSection";
-import Offer from "./organisms/Offer";
+import '../styles/TravelAgency.css';
+import Main from "./pages/Main";
+import Offers from "./pages/Offers";
 
 const TravelAgency = () => {
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <Main/>
+        },
+        {
+            path: "offers",
+            element: <Offers/>
+        },
+    ])
+
     return (
         <div className="TravelAgency">
-            <Header/>
-            <BrowserSection/>
-            <p className="sectionTitle">Oferta dla Ciebie!</p>
-            <Offer title="Akacje pod gruszą (Polska, Zgierz)"/>
+            <RouterProvider router={router}/>
         </div>
     );
 }

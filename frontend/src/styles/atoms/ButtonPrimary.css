@@ -9,3 +9,7 @@
     cursor: pointer;
     margin-top: 1%;
 }
+
+.ButtonPrimary:hover{
+    background-color: var(--colour-text-primary);
+}
