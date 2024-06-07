@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\Backend.Contracts.csproj": {}
+    "c:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\Backend.Contracts.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\Backend.Contracts.csproj": {
+    "c:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\Backend.Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\Backend.Contracts.csproj",
+        "projectUniqueName": "c:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\Backend.Contracts.csproj",
         "projectName": "Backend.Contracts",
-        "projectPath": "C:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\Backend.Contracts.csproj",
+        "projectPath": "c:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\Backend.Contracts.csproj",
         "packagesPath": "C:\\Users\\cybul\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\obj\\",
+        "outputPath": "c:\\Users\\cybul\\Desktop\\Infa\\Travel-Agency\\backend\\Backend.Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\cybul\\AppData\\Roaming\\NuGet\\NuGet.Config"
