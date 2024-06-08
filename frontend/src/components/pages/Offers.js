@@ -3,22 +3,19 @@ import OfferPreview from "../organisms/OfferPreview";
 import Header from "../organisms/Header";
 
 import '../../styles/pages/Offers.css';
+import axios from "axios";
+
 const Offers = () => {
-    const mockOfferTitle1 = "Akacje pod gruszą (Polska, Zgierz)";
-    const mockOfferTitle2 = "Sprzedam opla (Polska, Radom)";
-    const mockOfferDeparture1 = "Warszawa";
-    const mockOfferDeparture2 = "Łódź";
-    const mockOfferPrice1 = "1500zł";
-    const mockOfferPrice2 = "2000zł";
-    const mockOfferTransport1 = "Plane";
-    const mockOfferTransport2 = "Ship";
+    const BACKEND_ADDRESS = 'http://localhost:5027';
 
     let [offers, setOffers] = useState([]);
 
     const readOffers = () => {
-        //TODO: id will be required
-        setOffers([{title: mockOfferTitle1, departure: mockOfferDeparture1, price: mockOfferPrice1, transport: mockOfferTransport1},
-            {title: mockOfferTitle2, departure: mockOfferDeparture2, price: mockOfferPrice2, transport: mockOfferTransport2}]);
+        axios.get(BACKEND_ADDRESS + '/trips/getAll').then((response) => {
+            setOffers(response.data);
+        }).catch(error => {
+            console.error(error);
+        })
     }
 
     useEffect(readOffers, []);
@@ -28,7 +25,7 @@ const Offers = () => {
             <Header/>
             <p className="title">OFERTY</p>
             {offers.map((item, index) => (
-                <OfferPreview title={item.title} departure={item.departure} price={item.price} transport={item.transport}/>))}
+                <OfferPreview id={item.id} title={item.title} departure={item.departure} price={item.price} transport={item.transport}/>))}
         </div>
     );
 }
