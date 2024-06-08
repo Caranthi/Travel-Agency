@@ -48,4 +48,11 @@ public class TripController(ITripService tripService) : ControllerBase
     {
         return Ok(_tripService.DeleteTrip(id));
     }
+
+    [HttpDelete("nuke")]
+    public IActionResult DeleteAllTrips()
+    {
+        _tripService.NukeTrips();
+        return Ok("DELETED ALL TRIPS");
+    }
 }

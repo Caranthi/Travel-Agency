@@ -8,4 +8,5 @@ public interface ITripService
     IEnumerable<Trip> GetAllTrips();
     public Trip GetTrip(long id);
     public long DeleteTrip(long id);
+    public void NukeTrips();
 }

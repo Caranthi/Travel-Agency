@@ -4,6 +4,7 @@ import requests
 
 BACKEND_ADDRESS = 'http://localhost:5027'
 CREATE_TRIP_URL = BACKEND_ADDRESS + '/trips'
+NUKE_TRIPS_URL = BACKEND_ADDRESS + '/trips/nuke'
 
 
 class TripSaveDto:
@@ -28,6 +29,8 @@ def create_trip(tripSaveDto):
 
 
 if __name__ == '__main__':
+    # Nuke Database
+    requests.delete(NUKE_TRIPS_URL)
     # Create Trips
     tripsList = []
     # Trip 1

@@ -27,4 +27,9 @@ public class TripService : ITripService
         tmpTrips.Remove(id);
         return id;
     }
+
+    public void NukeTrips()
+    {
+        tmpTrips.Clear();
+    }
 }
