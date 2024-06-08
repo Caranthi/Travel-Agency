@@ -2,7 +2,7 @@ POST http://localhost:5027/trips
 Content-Type: application/json
 
 {
-    "id": 2,
+    "id": 5,
     "title": "Druga oferta",
     "departure": "Lodz",
     "price": 1000,
