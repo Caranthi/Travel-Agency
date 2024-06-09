@@ -32,9 +32,9 @@ const Offers = () => {
         if (price) {
             filteredOffers = filteredOffers.filter(offer => offer.price <= price);
         }
-        // if (transport) {
-        //     filteredOffers = filteredOffers.filter(offer => offer.transport === transport);
-        // }
+        if (transport) {
+            filteredOffers = filteredOffers.filter(offer => offer.transport === transport);
+        }
 
         setCurrentOffers(filteredOffers);
     }

@@ -16,23 +16,33 @@ const Browser = () => {
     const transportInputLabel = "Środek transportu";
     const transportOptions = ['Samolot', 'Autokar', 'Statek'];
 
-    const onDepartureInput = (e) =>
-    {
+    const onDepartureInput = (e) => {
         publish('filterDeparture', e.target.value);
     };
-    const onLocationInput = (e) =>
-    {
+    const onLocationInput = (e) => {
         publish('filterLocation', e.target.value);
     };
-    const onPriceInput = (e) =>
-    {
+    const onPriceInput = (e) => {
         publish('filterPrice', e.target.value);
     };
 
-    // TODO
-    const onTransportInput = (e) =>
-    {
-        publish('filterTransport', e.target.value);
+    const onTransportChange = (e) => {
+        let transport;
+        switch (e.target.value) {
+            case 'Samolot':
+                transport = 'Plane';
+                break;
+            case 'Autokar':
+                transport = 'Bus';
+                break;
+            case 'Statek':
+                transport = 'Ship';
+                break;
+            default:
+                transport = 'Plane';
+
+        }
+        publish('filterTransport', transport);
     };
 
     return (
@@ -43,7 +53,7 @@ const Browser = () => {
             <SeparatorLine/>
             <InputWithLabel label={priceInputLabel} placeholder={priceInputPlaceholder} type="number" onInput={onPriceInput}/>
             <SeparatorLine/>
-            <OptionWithLabel label={transportInputLabel} options={transportOptions}/>
+            <OptionWithLabel label={transportInputLabel} options={transportOptions} onChange={onTransportChange}/>
         </div>
     );
 }
