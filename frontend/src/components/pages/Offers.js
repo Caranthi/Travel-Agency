@@ -47,8 +47,7 @@ const Offers = () => {
             <Header/>
             <p className="title">OFERTY</p>
             {currentOffers.map((item, index) => (
-                <OfferPreview key={item.id} id={item.id} title={item.title} location={item.location}
-                              departure={item.departure} price={item.price} transport={item.transport}/>))}
+                <OfferPreview tripPreview={item}/>))}
         </div>
     );
 }

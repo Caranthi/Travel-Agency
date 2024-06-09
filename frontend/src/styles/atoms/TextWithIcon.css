@@ -33,3 +33,16 @@
     font-size: var(--font-size-input);
     margin-left: 7%;
 }
+
+.oldValue{
+    color: var(--colour-text-primary);
+    font-size: var(--font-size-input);
+    margin-left: 7%;
+    text-decoration: line-through;
+}
+
+.newValue{
+    color: var(--colour-text-primary);
+    font-size: var(--font-size-input);
+    margin-left: 5%;
+}

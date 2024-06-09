@@ -21,11 +21,15 @@ const Header = () => {
         navigate('/offers');
     }
 
+    const redirectToBargainsPage = () => {
+        navigate('/bargains');
+    }
+
     return (
         <div className="Header">
             <p className="companyName" onClick={() => redirectToMainPage()}>{companyName}</p>
             <ClickableText value={offersButton} onClick={() => redirectToOffersPage()}/>
-            <ClickableText value={bargainsButton}/>
+            <ClickableText value={bargainsButton} onClick={redirectToBargainsPage}/>
             <ClickableText value={entertainersButton}/>
             <PhoneNumber value={phoneNumber}/>
         </div>

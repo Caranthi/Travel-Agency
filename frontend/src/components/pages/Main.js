@@ -24,11 +24,7 @@ const Main = () => {
             <Header/>
             <BrowserSection/>
             <p className="sectionTitle">Oferta dla Ciebie!</p>
-            <OfferPreview id={recommendedOffer.id} title={recommendedOffer.title}
-                          location={recommendedOffer.location}
-                          departure={recommendedOffer.departure}
-                          price={recommendedOffer.price}
-                          transport={recommendedOffer.transport}/>
+            <OfferPreview tripPreview={recommendedOffer}/>
         </div>
     );
 }

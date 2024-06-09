@@ -6,5 +6,6 @@ public record TripSaveDto(
     string Location,
     string Departure,
     int Price,
-    string Transport
+    string Transport,
+    bool Bargain
 );

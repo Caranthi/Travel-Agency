@@ -2,10 +2,11 @@ POST http://localhost:8080/trips
 Content-Type: application/json
 
 {
-    "id": 5,
+    "id": 6,
     "title": "Druga oferta",
     "location": "(Zgierz, Polska)",
     "departure": "Lodz",
     "price": 1000,
-    "transport": "Plane"
+    "transport": "Plane",
+    "bargain": true
 }

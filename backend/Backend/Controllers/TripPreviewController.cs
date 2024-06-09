@@ -15,10 +15,10 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
     // IActionResult = Response<Object>
     public IActionResult CreateTrip(TripSaveDto trip)
     {
-        var newTrip = new TripPreview(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport);
+        var newTrip = new TripPreview(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport, trip.Bargain);
         _tripService.CreateTrip(newTrip);
 
-        var tripResponseDto = new TripPreviewResponseDto(newTrip.Id, newTrip.Title, newTrip.Location, newTrip.Departure, newTrip.Price, newTrip.Transport);
+        var tripResponseDto = new TripPreviewResponseDto(newTrip.Id, newTrip.Title, newTrip.Location, newTrip.Departure, newTrip.Price, newTrip.Transport, trip.Bargain);
         return Ok(tripResponseDto);
     }
 
@@ -30,7 +30,7 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
 
         foreach (TripPreview trip in trips)
         {
-            tripResponseDtoList.Add(new TripPreviewResponseDto(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport));
+            tripResponseDtoList.Add(new TripPreviewResponseDto(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport, trip.Bargain));
         }
         return Ok(tripResponseDtoList);
     }
@@ -39,7 +39,7 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
     public IActionResult GetTrip(long id)
     {
         var trip = _tripService.GetTrip(id);
-        var tripResponseDto = new TripPreviewResponseDto(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport);
+        var tripResponseDto = new TripPreviewResponseDto(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport, trip.Bargain);
         return Ok(tripResponseDto);
     }
 
