@@ -5,10 +5,9 @@ import OfferPreview from "../organisms/OfferPreview";
 import axios from 'axios';
 
 import '../../styles/pages/Main.css';
+import {BACKEND_ADDRESS} from "../../Consts";
 
 const Main = () => {
-    const BACKEND_ADDRESS = 'http://localhost:8080';
-
     let [recommendedOffer, setRecommenderOffer] = useState({});
 
     useEffect(() => {
@@ -25,7 +24,9 @@ const Main = () => {
             <Header/>
             <BrowserSection/>
             <p className="sectionTitle">Oferta dla Ciebie!</p>
-            <OfferPreview id={recommendedOffer.id} title={recommendedOffer.title} departure={recommendedOffer.departure}
+            <OfferPreview id={recommendedOffer.id} title={recommendedOffer.title}
+                          location={recommendedOffer.location}
+                          departure={recommendedOffer.departure}
                           price={recommendedOffer.price}
                           transport={recommendedOffer.transport}/>
         </div>

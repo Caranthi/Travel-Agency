@@ -7,7 +7,7 @@ namespace Backend.Controllers;
 
 [ApiController] // [] = @
 [Route("trips")]
-public class TripController(ITripService tripService) : ControllerBase
+public class TripPreviewController(ITripService tripService) : ControllerBase
 {
     private readonly ITripService _tripService = tripService;
 
@@ -15,10 +15,10 @@ public class TripController(ITripService tripService) : ControllerBase
     // IActionResult = Response<Object>
     public IActionResult CreateTrip(TripSaveDto trip)
     {
-        var newTrip = new Trip(trip.Id, trip.Title, trip.Departure, trip.Price, trip.Transport);
+        var newTrip = new TripPreview(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport);
         _tripService.CreateTrip(newTrip);
 
-        var tripResponseDto = new TripResponseDto(newTrip.Id, newTrip.Title, newTrip.Departure, newTrip.Price, newTrip.Transport);
+        var tripResponseDto = new TripPreviewResponseDto(newTrip.Id, newTrip.Title, newTrip.Location, newTrip.Departure, newTrip.Price, newTrip.Transport);
         return Ok(tripResponseDto);
     }
 
@@ -26,11 +26,11 @@ public class TripController(ITripService tripService) : ControllerBase
     public IActionResult GetAllTrips()
     {
         var trips = _tripService.GetAllTrips();
-        var tripResponseDtoList = new List<TripResponseDto>();
+        var tripResponseDtoList = new List<TripPreviewResponseDto>();
 
-        foreach (Trip trip in trips)
+        foreach (TripPreview trip in trips)
         {
-            tripResponseDtoList.Add(new TripResponseDto(trip.Id, trip.Title, trip.Departure, trip.Price, trip.Transport));
+            tripResponseDtoList.Add(new TripPreviewResponseDto(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport));
         }
         return Ok(tripResponseDtoList);
     }
@@ -39,7 +39,7 @@ public class TripController(ITripService tripService) : ControllerBase
     public IActionResult GetTrip(long id)
     {
         var trip = _tripService.GetTrip(id);
-        var tripResponseDto = new TripResponseDto(trip.Id, trip.Title, trip.Departure, trip.Price, trip.Transport);
+        var tripResponseDto = new TripPreviewResponseDto(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport);
         return Ok(tripResponseDto);
     }
 

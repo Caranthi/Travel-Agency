@@ -5,19 +5,19 @@ namespace Backend.Services.Trips;
 public class TripService : ITripService
 {
     // TODO: Change to database
-    private readonly Dictionary<long, Trip> tmpTrips = [];
+    private readonly Dictionary<long, TripPreview> tmpTrips = [];
 
-    public void CreateTrip(Trip trip)
+    public void CreateTrip(TripPreview trip)
     {
         tmpTrips.Add(trip.Id, trip);
     }
 
-    public Trip GetTrip(long id)
+    public TripPreview GetTrip(long id)
     {
         return tmpTrips[id];
     }
 
-    public IEnumerable<Trip> GetAllTrips()
+    public IEnumerable<TripPreview> GetAllTrips()
     {
         return tmpTrips.Values;
     }

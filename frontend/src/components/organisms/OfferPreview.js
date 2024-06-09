@@ -6,7 +6,7 @@ import TextWithIcon from "../atoms/TextWithIcon";
 
 import {faPlane, faPerson, faBus, faShip} from "@fortawesome/free-solid-svg-icons";
 
-const OfferPreview = ({id, title, departure, price, transport}) => {
+const OfferPreview = ({id, title, location, departure, price, transport}) => {
     const reserveButtonText = "Zarezerwuj";
     const departureLabel = "Wyjazd";
     const priceLabel = "Cena za osobę";
@@ -28,7 +28,10 @@ const OfferPreview = ({id, title, departure, price, transport}) => {
     return (
         <div className="OfferPreview">
             <div className="titleAndImage">
-                <p className="offerTitle">{title}</p>
+                <span className="offerSpan">
+                    <p className="offerTitle">{title}</p>
+                    <p className="offerLocation">{location}</p>
+                </span>
                 <div className="offerImage"/>
             </div>
             <div className="priceAndButton">

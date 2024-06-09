@@ -4,9 +4,9 @@ namespace Backend.Services.Trips;
 
 public interface ITripService
 {
-    void CreateTrip(Trip trip);
-    IEnumerable<Trip> GetAllTrips();
-    public Trip GetTrip(long id);
+    void CreateTrip(TripPreview trip);
+    IEnumerable<TripPreview> GetAllTrips();
+    public TripPreview GetTrip(long id);
     public long DeleteTrip(long id);
     public void NukeTrips();
 }

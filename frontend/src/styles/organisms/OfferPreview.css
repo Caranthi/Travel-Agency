@@ -18,16 +18,26 @@
     width: 60%;
 }
 
+.offerSpan{
+    display: flex;
+    margin-top: -5%;
+}
+
 .offerTitle{
     color: var(--colour-text-primary);
     font-size: var(--font-size-title);
-    margin-top: 0;
+}
+
+.offerLocation{
+    color: var(--colour-text-primary);
+    font-size: var(--font-size-title);
+    margin-left: 1.5%;
 }
 
 .offerImage{
     background-image: url("../../../public/Akacje.jpg");
     width: 100%;
-    height: 430px;
+    height: 415px;
     margin-top: -4%;
     border-radius: 7px;
 }

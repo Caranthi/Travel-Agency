@@ -4,10 +4,9 @@ import Header from "../organisms/Header";
 
 import '../../styles/pages/Offers.css';
 import axios from "axios";
+import {BACKEND_ADDRESS} from "../../Consts";
 
 const Offers = () => {
-    const BACKEND_ADDRESS = 'http://localhost:8080';
-
     let [offers, setOffers] = useState([]);
 
     const readOffers = () => {
@@ -25,7 +24,8 @@ const Offers = () => {
             <Header/>
             <p className="title">OFERTY</p>
             {offers.map((item, index) => (
-                <OfferPreview id={item.id} title={item.title} departure={item.departure} price={item.price} transport={item.transport}/>))}
+                <OfferPreview id={item.id} title={item.title} location={item.location}
+                              departure={item.departure} price={item.price} transport={item.transport}/>))}
         </div>
     );
 }

@@ -4,6 +4,7 @@ Content-Type: application/json
 {
     "id": 5,
     "title": "Druga oferta",
+    "location": "(Zgierz, Polska)",
     "departure": "Lodz",
     "price": 1000,
     "transport": "Plane"
