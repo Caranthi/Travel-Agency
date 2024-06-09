@@ -39,7 +39,11 @@ if __name__ == '__main__':
     # Trip 2
     tripsList.append(TripSaveDto(2, 'Cuda na kiju', '(Radom, Polska)', 'Łódź', 1000, 'Ship'))
     # Trip 3
-    tripsList.append(TripSaveDto(3, 'Wakacje z kucharzami', '(Barcelona, Katalonia)', 'Remiszewice', 2000, 'Plane'))
+    tripsList.append(TripSaveDto(3, 'Wakacje z kucharzami', '(Barcelona, Hiszpania)', 'Remiszewice', 2000, 'Plane'))
+    # Trip 4
+    tripsList.append(TripSaveDto(4, 'Świetne wakacje', '(Porto, Portugalia)', 'Gdańsk', 2500, 'Bus'))
+    # Trip 5
+    tripsList.append(TripSaveDto(5, 'Tu już nie mam pomysłu', '(Paryż, Francja)', 'Szczecin', 2000, 'Ship'))
 
     for trip in tripsList:
         create_trip(trip)

@@ -4,24 +4,44 @@ import '../../styles/organisms/Browser.css'
 import InputWithLabel from "../atoms/InputWithLabel";
 import SeparatorLine from "../atoms/SeparatorLine";
 import OptionWithLabel from "../atoms/OptionWithLabel";
+import {publish} from "../../events";
 
 const Browser = () => {
-    const placeInputLabel = "Gdzie chciałbyś wyjechać?";
-    const placeInputPlaceholder = "Gdziekolwiek";
-    const startInputLabel = "Skąd chciałbyś wyruszyć?";
-    const startInputPlaceholder = "Skądkolwiek";
-    const peopleInputLabel = "Ile osób?";
-    const peopleInputPlaceholder = 2;
+    const locationInputLabel = "Gdzie chciałbyś wyjechać?";
+    const locationInputPlaceholder = "Gdziekolwiek";
+    const departureInputLabel = "Skąd chciałbyś wyruszyć?";
+    const departureInputPlaceholder = "Skądkolwiek";
+    const priceInputLabel = "Do jakiej kwoty (zł)?";
+    const priceInputPlaceholder = 2000;
     const transportInputLabel = "Środek transportu";
     const transportOptions = ['Samolot', 'Autokar', 'Statek'];
 
+    const onDepartureInput = (e) =>
+    {
+        publish('filterDeparture', e.target.value);
+    };
+    const onLocationInput = (e) =>
+    {
+        publish('filterLocation', e.target.value);
+    };
+    const onPriceInput = (e) =>
+    {
+        publish('filterPrice', e.target.value);
+    };
+
+    // TODO
+    const onTransportInput = (e) =>
+    {
+        publish('filterTransport', e.target.value);
+    };
+
     return (
         <div className="Browser">
-            <InputWithLabel label={placeInputLabel} placeholder={placeInputPlaceholder} type="text"/>
+            <InputWithLabel label={locationInputLabel} placeholder={locationInputPlaceholder} type="text" onInput={onLocationInput}/>
             <SeparatorLine/>
-            <InputWithLabel label={startInputLabel} placeholder={startInputPlaceholder} type="text"/>
+            <InputWithLabel label={departureInputLabel} placeholder={departureInputPlaceholder} type="text" onInput={onDepartureInput}/>
             <SeparatorLine/>
-            <InputWithLabel label={peopleInputLabel} placeholder={peopleInputPlaceholder} type="number"/>
+            <InputWithLabel label={priceInputLabel} placeholder={priceInputPlaceholder} type="number" onInput={onPriceInput}/>
             <SeparatorLine/>
             <OptionWithLabel label={transportInputLabel} options={transportOptions}/>
         </div>
