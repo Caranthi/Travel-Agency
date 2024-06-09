@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: travelAgency-db
+    environment:
+      - POSTGRES_DB=travelAgency
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+    ports:
+      - 5434:5432
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-d", "travelAgency", "-U", "user" ]
+      start_period: 5s
+      interval: 10s
+      timeout: 3s
+      retries: 3
+      
+  backend:
+    build: ./backend
+    container_name: travelAgency-backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    container_name: travelAgency-frontend
+    ports:
+      - "3000:3000"  
+    depends_on:
+      backend:
+        condition: service_started
+
+volumes:
+  pg:

@@ -2,6 +2,7 @@ using Backend.Services.Trips;
 
 var builder = WebApplication.CreateBuilder(args);
 {
+    // builder.WebHost.UseUrls("http://localhost:5027");
     builder.Services.AddControllers();
     builder.Services.AddSingleton<ITripService, TripService>();
     builder.Services.AddCors(options =>

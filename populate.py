@@ -2,7 +2,7 @@ import json
 
 import requests
 
-BACKEND_ADDRESS = 'http://localhost:5027'
+BACKEND_ADDRESS = 'http://localhost:8080'
 CREATE_TRIP_URL = BACKEND_ADDRESS + '/trips'
 NUKE_TRIPS_URL = BACKEND_ADDRESS + '/trips/nuke'
 

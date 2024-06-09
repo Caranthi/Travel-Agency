@@ -7,7 +7,7 @@ import axios from 'axios';
 import '../../styles/pages/Main.css';
 
 const Main = () => {
-    const BACKEND_ADDRESS = 'http://localhost:5027';
+    const BACKEND_ADDRESS = 'http://localhost:8080';
 
     let [recommendedOffer, setRecommenderOffer] = useState({});
 

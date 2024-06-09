@@ -6,7 +6,7 @@ import '../../styles/pages/Offers.css';
 import axios from "axios";
 
 const Offers = () => {
-    const BACKEND_ADDRESS = 'http://localhost:5027';
+    const BACKEND_ADDRESS = 'http://localhost:8080';
 
     let [offers, setOffers] = useState([]);
 
