@@ -6,12 +6,14 @@ import TextWithIcon from "../atoms/TextWithIcon";
 
 import {faPlane, faPerson, faBus, faShip} from "@fortawesome/free-solid-svg-icons";
 import Bargain from "../atoms/Bargain";
+import {useNavigate, useNavigation} from "react-router-dom";
 
 const OfferPreview = ({tripPreview}) => {
     const reserveButtonText = "Zarezerwuj";
     const departureLabel = "Wyjazd";
     const priceLabel = "Cena za osobę (zł)";
     const bargainLabel = "PROMOCJA! Cena:";
+    const navigate = useNavigate();
 
     const getIcon = () => {
         switch (tripPreview.transport) {
@@ -25,6 +27,10 @@ const OfferPreview = ({tripPreview}) => {
                 return faPlane;
         }
     }
+    const goToPayment = () => {
+        navigate('/payment');
+    }
+
     const icon = getIcon();
 
     return (
@@ -41,7 +47,7 @@ const OfferPreview = ({tripPreview}) => {
                 {tripPreview.bargain ? (<Bargain value={tripPreview.price} label={bargainLabel} icon={faPerson}/>)
                     : (<TextWithIcon value={tripPreview.price} label={priceLabel} icon={faPerson}/>)
                 }
-                <ButtonPrimary value={reserveButtonText} style={{height: '85px', marginTop: '15%'}}/>
+                <ButtonPrimary value={reserveButtonText} style={{height: '85px', marginTop: '15%'}} onClick={goToPayment}/>
             </div>
         </div>
     );
