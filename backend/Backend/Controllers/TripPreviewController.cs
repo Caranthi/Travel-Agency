@@ -1,4 +1,4 @@
-using Backend.Contracts.Trip;
+using Backend.Contracts.TripPreview;
 using Backend.Models;
 using Backend.Services.Trips;
 using Microsoft.AspNetCore.Mvc;
@@ -17,17 +17,16 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
     {
         var newTrip = new TripPreview()
         {
-            Title = "test",
-            Location = "test",
-            Departure = "test",
-            Price = 1,
-            Transport = "Plane",
-            Bargain = false
+            Title = trip.Title,
+            Location = trip.Location,
+            Departure = trip.Departure,
+            Price = trip.Price,
+            Transport = trip.Transport,
+            Bargain = trip.Bargain
         };
         _tripService.CreateTrip(newTrip);
 
-        // var tripResponseDto = new TripPreviewResponseDto(newTrip.Id, newTrip.Title, newTrip.Location, newTrip.Departure, newTrip.Price, newTrip.Transport, trip.Bargain);
-        return Ok(0);
+        return Ok("Successfully added new Trip!");
     }
 
     [HttpGet("getAll")]
@@ -48,7 +47,7 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
     {
         var trip = _tripService.GetTrip(id);
         var tripResponseDto = new TripPreviewResponseDto(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport, trip.Bargain);
-        return Ok(1);
+        return Ok(tripResponseDto);
     }
 
     [HttpDelete("{id:long}")]

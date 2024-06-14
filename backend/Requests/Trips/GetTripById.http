@@ -1,1 +1,1 @@
-GET http://localhost:8080/trips/get/1
+GET http://localhost:8080/trips/get/8

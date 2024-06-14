@@ -5,7 +5,6 @@ namespace Backend.Services.Trips;
 public class TripService : ITripService
 {
     private readonly AppDBContext _context;
-    private readonly Dictionary<long, TripPreview> tmpTrips = [];
 
     public TripService(AppDBContext context)
     {
@@ -16,12 +15,11 @@ public class TripService : ITripService
     {
         await _context.tripPreviews.AddAsync(trip);
         await _context.SaveChangesAsync();
-        // tmpTrips.Add(trip.Id, trip);
     }
 
     public TripPreview GetTrip(long id)
     {
-        return tmpTrips[id];
+        return _context.tripPreviews.Find(id);
     }
 
     public IEnumerable<TripPreview> GetAllTrips()
@@ -31,7 +29,9 @@ public class TripService : ITripService
 
     public long DeleteTrip(long id)
     {
-        tmpTrips.Remove(id);
+        var tripToDelete = _context.tripPreviews.Find(id);
+        _context.tripPreviews.RemoveRange(tripToDelete);
+        _context.SaveChanges();
         return id;
     }
 
