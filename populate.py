@@ -8,8 +8,7 @@ NUKE_TRIPS_URL = BACKEND_ADDRESS + '/trips/nuke'
 
 
 class TripSaveDto:
-    def __init__(self, id, title, location, departure, price, transport, bargain):
-        self.id = id
+    def __init__(self, title, location, departure, price, transport, bargain):
         self.title = title
         self.location = location
         self.departure = departure
@@ -36,19 +35,19 @@ if __name__ == '__main__':
     # Create Trips
     tripsList = []
     # Trip 1
-    tripsList.append(TripSaveDto(1, 'Akacje pod gruszą', '(Zgierz, Polska)', 'Warszawa', 1500, 'Plane', False))
+    tripsList.append(TripSaveDto('Akacje pod gruszą', '(Zgierz, Polska)', 'Warszawa', 1500, 'Plane', False))
     # Trip 2
-    tripsList.append(TripSaveDto(2, 'Cuda na kiju', '(Radom, Polska)', 'Łódź', 1000, 'Ship', True))
+    tripsList.append(TripSaveDto('Cuda na kiju', '(Radom, Polska)', 'Łódź', 1000, 'Ship', True))
     # Trip 3
-    tripsList.append(TripSaveDto(3, 'Wakacje z kucharzami', '(Barcelona, Hiszpania)', 'Remiszewice', 2000, 'Plane', True))
+    tripsList.append(TripSaveDto('Wakacje z duchami', '(Walencja, Hiszpania)', 'Remiszewice', 2000, 'Plane', True))
     # Trip 4
-    tripsList.append(TripSaveDto(4, 'Świetne wakacje', '(Porto, Portugalia)', 'Gdańsk', 2500, 'Bus', False))
+    tripsList.append(TripSaveDto('Świetne wakacje', '(Porto, Portugalia)', 'Gdańsk', 2500, 'Bus', False))
     # Trip 5
-    tripsList.append(TripSaveDto(5, 'Tu już nie mam pomysłu', '(Paryż, Francja)', 'Szczecin', 2000, 'Ship', False))
+    tripsList.append(TripSaveDto('Tu już nie mam pomysłu', '(Paryż, Francja)', 'Szczecin', 2000, 'Ship', False))
     # Trip 6
-    tripsList.append(TripSaveDto(6, 'Prosimy o 5', '(Madryt, Hiszpania)', 'Warszawa', 1900, 'Bus', False))
+    tripsList.append(TripSaveDto('Prosimy o 5', '(Madryt, Hiszpania)', 'Warszawa', 1900, 'Bus', False))
     # Trip 7
-    tripsList.append(TripSaveDto(7, 'Relaks & SPA', '(Londyn, Anglia)', 'Gdynia', 1400, 'Bus', True))
+    tripsList.append(TripSaveDto('Relaks & SPA', '(Londyn, Anglia)', 'Gdynia', 1400, 'Bus', True))
 
     for trip in tripsList:
         create_trip(trip)

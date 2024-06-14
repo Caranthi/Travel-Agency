@@ -1,4 +1,4 @@
-namespace Backend.Contracts.Trip;
+namespace Backend.Contracts.TripPreview;
 
 // record - immutable object
 public record TripPreviewResponseDto(

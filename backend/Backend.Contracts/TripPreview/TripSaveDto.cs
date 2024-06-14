@@ -1,7 +1,6 @@
-namespace Backend.Contracts.Trip;
+namespace Backend.Contracts.TripPreview;
 
 public record TripSaveDto(
-    long Id,
     string Title,
     string Location,
     string Departure,

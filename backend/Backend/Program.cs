@@ -1,4 +1,6 @@
+using Backend;
 using Backend.Services.Trips;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -13,6 +15,10 @@ var builder = WebApplication.CreateBuilder(args);
                .AllowAnyHeader();
     });
 });
+
+    var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+    builder.Services.AddDbContext<AppDBContext>(options =>
+        options.UseNpgsql(connectionString));
 }
 
 var app = builder.Build();

@@ -16,6 +16,8 @@ services:
       interval: 10s
       timeout: 3s
       retries: 3
+    networks:
+      - app-network
       
   backend:
     build: ./backend
@@ -25,6 +27,10 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    environment:
+        - ConnectionStrings__DefaultConnection=User ID =user;Password=password;Server=db;Port=5432;Database=travelAgency;
+    networks:
+      - app-network
 
   frontend:
     build: ./frontend
@@ -37,3 +43,7 @@ services:
 
 volumes:
   pg:
+
+networks:
+  app-network:
+    driver: bridge

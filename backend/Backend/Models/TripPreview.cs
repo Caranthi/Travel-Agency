@@ -1,12 +1,12 @@
 namespace Backend.Models;
 
-public class TripPreview(long id, string title, string location, string departure, int price, string transport, bool bargain)
+public class TripPreview
 {
-    public long Id { get; init; } = id;
-    public string Title { get; set; } = title;
-    public string Location { get; set; } = location;
-    public string Departure { get; set; } = departure;
-    public int Price { get; set; } = price;
-    public string Transport { get; set; } = transport;
-    public bool Bargain { get; set; } = bargain;
+    public long Id { get; init; }
+    public string Title { get; set; }
+    public string Location { get; set; }
+    public string Departure { get; set; }
+    public int Price { get; set; }
+    public string Transport { get; set; }
+    public bool Bargain { get; set; }
 }

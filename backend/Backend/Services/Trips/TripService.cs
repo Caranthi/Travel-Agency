@@ -4,12 +4,19 @@ namespace Backend.Services.Trips;
 
 public class TripService : ITripService
 {
-    // TODO: Change to database
+    private readonly AppDBContext _context;
     private readonly Dictionary<long, TripPreview> tmpTrips = [];
 
-    public void CreateTrip(TripPreview trip)
+    public TripService(AppDBContext context)
     {
-        tmpTrips.Add(trip.Id, trip);
+        _context = context ?? throw new ArgumentNullException(nameof(context));
+    }
+
+    public async void CreateTrip(TripPreview trip)
+    {
+        await _context.tripPreviews.AddAsync(trip);
+        await _context.SaveChangesAsync();
+        // tmpTrips.Add(trip.Id, trip);
     }
 
     public TripPreview GetTrip(long id)
@@ -19,7 +26,7 @@ public class TripService : ITripService
 
     public IEnumerable<TripPreview> GetAllTrips()
     {
-        return tmpTrips.Values;
+        return _context.tripPreviews.ToList();
     }
 
     public long DeleteTrip(long id)
@@ -30,6 +37,8 @@ public class TripService : ITripService
 
     public void NukeTrips()
     {
-        tmpTrips.Clear();
+        var allTrips = _context.tripPreviews.ToList();
+        _context.tripPreviews.RemoveRange(allTrips);
+        _context.SaveChanges();
     }
 }

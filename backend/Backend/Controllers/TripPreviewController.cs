@@ -15,11 +15,19 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
     // IActionResult = Response<Object>
     public IActionResult CreateTrip(TripSaveDto trip)
     {
-        var newTrip = new TripPreview(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport, trip.Bargain);
+        var newTrip = new TripPreview()
+        {
+            Title = "test",
+            Location = "test",
+            Departure = "test",
+            Price = 1,
+            Transport = "Plane",
+            Bargain = false
+        };
         _tripService.CreateTrip(newTrip);
 
-        var tripResponseDto = new TripPreviewResponseDto(newTrip.Id, newTrip.Title, newTrip.Location, newTrip.Departure, newTrip.Price, newTrip.Transport, trip.Bargain);
-        return Ok(tripResponseDto);
+        // var tripResponseDto = new TripPreviewResponseDto(newTrip.Id, newTrip.Title, newTrip.Location, newTrip.Departure, newTrip.Price, newTrip.Transport, trip.Bargain);
+        return Ok(0);
     }
 
     [HttpGet("getAll")]
@@ -40,7 +48,7 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
     {
         var trip = _tripService.GetTrip(id);
         var tripResponseDto = new TripPreviewResponseDto(trip.Id, trip.Title, trip.Location, trip.Departure, trip.Price, trip.Transport, trip.Bargain);
-        return Ok(tripResponseDto);
+        return Ok(1);
     }
 
     [HttpDelete("{id:long}")]
