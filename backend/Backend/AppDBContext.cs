@@ -10,4 +10,5 @@ public class AppDBContext : DbContext
     }
 
     public DbSet<Trip> Trips { get; set; }
+    public DbSet<User> Users { get; set; }
 }

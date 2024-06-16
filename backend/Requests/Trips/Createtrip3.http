@@ -1,0 +1,15 @@
+POST http://localhost:8080/trips
+Content-Type: application/json
+
+{
+    "title": "Wakacje życia",
+    "city": "Madryt",
+    "country": "Hiszpania",
+    "departure": "Warszawa",
+    "price": 2500,
+    "transport": "Plane",
+    "bargain": false,
+    "description": "Testowy opis, który ma przynajmniej 20 znaków",
+    "childrenPrice": 500,
+    "travelTime": 0.5
+}
