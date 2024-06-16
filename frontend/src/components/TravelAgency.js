@@ -10,6 +10,8 @@ import {subscribe} from "../events";
 import ErrorForm from "./pages/ErrorForm";
 import SingleOffer from "./pages/SingleOffer";
 import AddOffer from "./pages/AddOffer";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
 const TravelAgency = () => {
     const [error, setError] = useState('');
@@ -37,6 +39,14 @@ const TravelAgency = () => {
         {
             path: "add",
             element: <AddOffer/>
+        },
+        {
+            path: "login",
+            element: <Login/>
+        },
+        {
+            path: "register",
+            element: <Register/>
         }
     ])
 

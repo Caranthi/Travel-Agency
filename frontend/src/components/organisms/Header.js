@@ -8,7 +8,8 @@ import {useNavigate} from "react-router-dom";
 const Header = () => {
     const companyName = "KRUCYB";
     const offersButton = "Oferty";
-    const entertainersButton = "Lista atrakcji";
+    const logInButton = "Zaloguj się";
+    const signOutButton = "Wyloguj się";
     const bargainsButton = "Promocje";
     const addOfferButton = "Dodaj ofertę";
     const phoneNumber = "123 456 789";
@@ -20,21 +21,34 @@ const Header = () => {
     const redirectToOffersPage = () => {
         navigate('/offers');
     }
-
+    const redirectToLoginPage = () => {
+        navigate('/login');
+    }
     const redirectToBargainsPage = () => {
         navigate('/bargains');
     };
     const redirectToAddPage = () => {
         navigate('/add');
     };
+    const signOut = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
 
     return (
         <div className="Header">
             <p className="companyName" onClick={() => redirectToMainPage()}>{companyName}</p>
             <ClickableText value={offersButton} onClick={() => redirectToOffersPage()}/>
             <ClickableText value={bargainsButton} onClick={redirectToBargainsPage}/>
-            <ClickableText value={entertainersButton}/>
-            <ClickableText value={addOfferButton} onClick={redirectToAddPage}/>
+            {
+                localStorage.getItem('user') ? (<ClickableText value={signOutButton} onClick={signOut}/>)
+                    : (<ClickableText value={logInButton} onClick={redirectToLoginPage}/>)
+            }
+            {
+                localStorage.getItem('user') && localStorage.getItem('user').valueOf() === 'admin' ? (
+                        <ClickableText value={addOfferButton} onClick={redirectToAddPage}/>)
+                    : (<div/>)
+            }
             <PhoneNumber value={phoneNumber}/>
         </div>
     );
