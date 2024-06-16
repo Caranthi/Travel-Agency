@@ -1,0 +1,23 @@
+@import "../Consts.css";
+
+.AddOffer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.pageTitle{
+    color: var(--colour-text-primary);
+    font-size: var(--font-size-title);
+    margin-top: 0.5%;
+    margin-right: 10%;
+    margin-bottom: 0.5%;
+}
+
+.inputPair{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+}

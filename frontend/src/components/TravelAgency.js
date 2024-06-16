@@ -9,6 +9,7 @@ import Payment from "./pages/Payment";
 import {subscribe} from "../events";
 import ErrorForm from "./pages/ErrorForm";
 import SingleOffer from "./pages/SingleOffer";
+import AddOffer from "./pages/AddOffer";
 
 const TravelAgency = () => {
     const [error, setError] = useState('');
@@ -32,6 +33,10 @@ const TravelAgency = () => {
         {
             path: "offer",
             element: <SingleOffer/>
+        },
+        {
+            path: "add",
+            element: <AddOffer/>
         }
     ])
 

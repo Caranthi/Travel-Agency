@@ -23,7 +23,10 @@ const Header = () => {
 
     const redirectToBargainsPage = () => {
         navigate('/bargains');
-    }
+    };
+    const redirectToAddPage = () => {
+        navigate('/add');
+    };
 
     return (
         <div className="Header">
@@ -31,6 +34,7 @@ const Header = () => {
             <ClickableText value={offersButton} onClick={() => redirectToOffersPage()}/>
             <ClickableText value={bargainsButton} onClick={redirectToBargainsPage}/>
             <ClickableText value={entertainersButton}/>
+            <ClickableText value={addOfferButton} onClick={redirectToAddPage}/>
             <PhoneNumber value={phoneNumber}/>
         </div>
     );
