@@ -6,10 +6,10 @@ import TextWithIcon from "../atoms/TextWithIcon";
 
 import {faPlane, faPerson, faBus, faShip} from "@fortawesome/free-solid-svg-icons";
 import Bargain from "../atoms/Bargain";
-import {useNavigate, useNavigation} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const OfferPreview = ({tripPreview}) => {
-    const reserveButtonText = "Zarezerwuj";
+    const buttonText = "Zobacz szczegóły";
     const departureLabel = "Wyjazd";
     const priceLabel = "Cena za osobę (zł)";
     const bargainLabel = "PROMOCJA! Cena:";
@@ -27,18 +27,18 @@ const OfferPreview = ({tripPreview}) => {
                 return faPlane;
         }
     }
-    const goToPayment = () => {
-        navigate('/payment');
+    const goOfferPage = () => {
+        navigate('/offer', {state: tripPreview.id});
     }
 
     const icon = getIcon();
 
     return (
-        <div className="OfferPreview">
+        <div className="OfferPreview" onClick={goOfferPage}>
             <div className="titleAndImage">
                 <span className="offerSpan">
                     <p className="offerTitle">{tripPreview.title}</p>
-                    <p className="offerLocation">{tripPreview.location}</p>
+                    <p className="offerLocation">({tripPreview.city}, {tripPreview.country})</p>
                 </span>
                 <div className="offerImage"/>
             </div>
@@ -47,7 +47,7 @@ const OfferPreview = ({tripPreview}) => {
                 {tripPreview.bargain ? (<Bargain value={tripPreview.price} label={bargainLabel} icon={faPerson}/>)
                     : (<TextWithIcon value={tripPreview.price} label={priceLabel} icon={faPerson}/>)
                 }
-                <ButtonPrimary value={reserveButtonText} style={{height: '85px', marginTop: '15%'}} onClick={goToPayment}/>
+                <ButtonPrimary value={buttonText} style={{height: '85px', marginTop: '15%'}} onClick={goOfferPage}/>
             </div>
         </div>
     );

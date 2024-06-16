@@ -4,7 +4,7 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 import '../../styles/atoms/TextWithIcon.css';
 
-const Bargain = ({label, value, icon}) => {
+const Bargain = ({label, value, icon, style}) => {
 
     return (
         <div className="TextWithIcon">

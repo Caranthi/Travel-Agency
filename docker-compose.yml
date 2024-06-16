@@ -28,7 +28,7 @@ services:
       db:
         condition: service_healthy
     environment:
-        - ConnectionStrings__DefaultConnection=User ID =user;Password=password;Server=db;Port=5432;Database=travelAgency;
+        - ConnectionStrings__DefaultConnection=User ID =user;Password=password;Server=db;Port=5432;Database=travelAgency;Timeout=50;CommandTimeout=50
     networks:
       - app-network
 

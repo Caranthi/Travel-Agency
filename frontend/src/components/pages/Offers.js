@@ -27,7 +27,7 @@ const Offers = () => {
             filteredOffers = filteredOffers.filter(offer => offer.departure.toUpperCase().includes(departure.toUpperCase()));
         }
         if (location) {
-            filteredOffers = filteredOffers.filter(offer => offer.location.toUpperCase().includes(location.toUpperCase()));
+            filteredOffers = filteredOffers.filter(offer => offer.country.toUpperCase().includes(location.toUpperCase()));
         }
         if (price) {
             filteredOffers = filteredOffers.filter(offer => offer.price <= price);

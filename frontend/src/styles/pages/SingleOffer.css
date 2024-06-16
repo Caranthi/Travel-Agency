@@ -1,0 +1,62 @@
+@import "../Consts.css";
+
+.SingleOffer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.offerHeader {
+    color: var(--colour-text-primary-hover);
+    font-size: var(--font-size-title);
+    margin-top: 0.5%;
+}
+
+.offerContainer {
+    display: flex;
+    flex-direction: column;
+    border: solid var(--colour-primary);
+    width: 80%;
+    height: 800px;
+    border-radius: 4px;
+    margin-top: -1.5%;
+}
+
+.offerData {
+    display: flex;
+}
+
+.imageContainer {
+    display: flex;
+    flex-direction: column;
+    width: 87%;
+    height: 100%;
+}
+
+.image {
+    background-image: url("../../../public/Akacje.jpg");
+    width: 108%;
+    height: 560px;
+    border-radius: 0 0 500px 0;
+}
+
+.data {
+    margin-left: 8%;
+    margin-right: 3%;
+}
+
+.offerDescription {
+    color: var(--colour-text-primary-hover);
+    font-size: var(--font-size-button);
+    margin-top: 1.5%;
+    margin-bottom: 9%;
+}
+
+.freePlaces{
+    color: var(--colour-text-primary);
+    font-size: var(--font-size-button);
+    margin-top: 8%;
+    margin-bottom: 3.5%;
+    margin-left: 1%;
+}

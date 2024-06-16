@@ -9,5 +9,5 @@ public class AppDBContext : DbContext
     {
     }
 
-    public DbSet<TripPreview> tripPreviews { get; set; }
+    public DbSet<Trip> Trips { get; set; }
 }

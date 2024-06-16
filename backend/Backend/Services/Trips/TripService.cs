@@ -11,34 +11,34 @@ public class TripService : ITripService
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public async void CreateTrip(TripPreview trip)
+    public async void CreateTrip(Trip trip)
     {
-        await _context.tripPreviews.AddAsync(trip);
+        await _context.Trips.AddAsync(trip);
         await _context.SaveChangesAsync();
     }
 
-    public TripPreview GetTrip(long id)
+    public Trip GetTrip(long id)
     {
-        return _context.tripPreviews.Find(id);
+        return _context.Trips.Find(id);
     }
 
-    public IEnumerable<TripPreview> GetAllTrips()
+    public IEnumerable<Trip> GetAllTrips()
     {
-        return _context.tripPreviews.ToList();
+        return _context.Trips.ToList();
     }
 
     public long DeleteTrip(long id)
     {
-        var tripToDelete = _context.tripPreviews.Find(id);
-        _context.tripPreviews.RemoveRange(tripToDelete);
+        var tripToDelete = _context.Trips.Find(id);
+        _context.Trips.RemoveRange(tripToDelete);
         _context.SaveChanges();
         return id;
     }
 
     public void NukeTrips()
     {
-        var allTrips = _context.tripPreviews.ToList();
-        _context.tripPreviews.RemoveRange(allTrips);
+        var allTrips = _context.Trips.ToList();
+        _context.Trips.RemoveRange(allTrips);
         _context.SaveChanges();
     }
 }

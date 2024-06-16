@@ -2,7 +2,7 @@ import React from "react";
 
 import '../../styles/atoms/TextWithIcon.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-const TextWithIcon = ({label, value, icon}) =>
+const TextWithIcon = ({label, value, icon, style}) =>
 {
 
     return(

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {createBrowserRouter, RouterProvider, useNavigate} from "react-router-dom";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 
 import '../styles/TravelAgency.css';
 import Main from "./pages/Main";
@@ -8,6 +8,7 @@ import Bargains from "./pages/Bargains";
 import Payment from "./pages/Payment";
 import {subscribe} from "../events";
 import ErrorForm from "./pages/ErrorForm";
+import SingleOffer from "./pages/SingleOffer";
 
 const TravelAgency = () => {
     const [error, setError] = useState('');
@@ -28,6 +29,10 @@ const TravelAgency = () => {
             path: "payment",
             element: <Payment/>
         },
+        {
+            path: "offer",
+            element: <SingleOffer/>
+        }
     ])
 
     useEffect(() => {
