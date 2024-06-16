@@ -11,22 +11,6 @@ import axios from "axios";
 import {BACKEND_ADDRESS} from "../../Consts";
 
 const SingleOffer = () => {
-    // const offer = {
-    //     title: 'Testowy tytuł',
-    //     country: 'Polska',
-    //     city: 'Zgierz',
-    //     price: 1000,
-    //     departure: 'Łódź',
-    //     transport: 'Plane',
-    //     bargain: false,
-    //     description: 'Testowy opis, który zawiera więcej niż 20 znaków napisany tak, żeby się zawijał!',
-    //     childrenPrice: 500,
-    //     people: 5,
-    //     hotelName: 'testowy hotel',
-    //     hotelStars: 4.0,
-    //     entertainment: 'Spływy kajakami',
-    //     travelTime: 1.0
-    // };
     const navigate = useNavigate();
     const page = useLocation();
     const reserveButtonText = 'Zarezerwuj już teraz!';
@@ -64,7 +48,7 @@ const SingleOffer = () => {
     };
     const icon = getIcon();
 
-    useEffect(getOffer, [offer]);
+    useEffect(getOffer, []);
 
     return (
         <div className="SingleOffer">

@@ -9,9 +9,11 @@ const OptionWithLabel = ({label, options, onChange}) => {
         <div className="OptionWithLabel">
             <p className="label">{label}</p>
             <select className="options" onChange={onChange}>
-                {options.map((item, index) => (<option>
-                    {options[index]}
-                </option>))}
+                {options.map((item, index) => (
+                    <option key={index} value={item}>
+                        {item}
+                    </option>
+                ))}
             </select>
         </div>
     );

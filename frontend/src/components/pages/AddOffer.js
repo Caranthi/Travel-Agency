@@ -4,6 +4,9 @@ import '../../styles/pages/AddOffer.css';
 import Header from "../organisms/Header";
 import InputWithLabel from "../atoms/InputWithLabel";
 import OptionWithLabel from "../atoms/OptionWithLabel";
+import ClickableText from "../atoms/ClickableText";
+import axios from "axios";
+import {BACKEND_ADDRESS} from "../../Consts";
 import {publish} from "../../events";
 
 const AddOffer = () => {
@@ -88,11 +91,21 @@ const AddOffer = () => {
         }
         offer.bargain = bargain;
     };
+    const postOffer = () => {
+        axios.post(BACKEND_ADDRESS + '/trips', offer, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then((response) => {
+            console.log(response.data);
+            publish('error', 'Udało się dodać ofertę!');
+        }).catch(error => console.error(error));
+    }
 
     return (
         <div className="AddOffer">
             <Header/>
-            <p className="pageTitle">{pageTitle}</p>
+            <ClickableText value={pageTitle} style={{marginRight: '23%', marginBottom: '0.5%'}} onClick={postOffer}/>
             <div className="inputPair">
                 <InputWithLabel label={titleLabel} type="text" placeholder={defaultPlaceholder} onInput={onTitleChange}/>
                 <InputWithLabel label={descriptionLabel} type="text" placeholder={defaultPlaceholder} onInput={onDescriptionChange}/>
