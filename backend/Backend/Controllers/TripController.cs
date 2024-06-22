@@ -1,4 +1,5 @@
 using Backend.Contracts.Trip;
+using Backend.Exceptions;
 using Backend.Models;
 using Backend.Services.Trips;
 using Microsoft.AspNetCore.Mvc;
@@ -13,7 +14,7 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
 
     [HttpPost()]
     // IActionResult = Response<Object>
-    public IActionResult CreateTrip(TripSaveDto trip)
+    public async Task<IActionResult> CreateTrip(TripSaveDto trip)
     {
         var newTrip = new Trip()
         {
@@ -27,9 +28,17 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
             TravelTime = trip.TravelTime,
             Hotel = trip.Hotel
         };
-        _tripService.CreateTrip(newTrip);
 
-        return Ok("Successfully added new Trip!");
+        try
+        {
+            await _tripService.CreateTrip(newTrip);
+
+            return Ok("Successfully added new Trip!");
+        }
+        catch (InvalidModelException e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 
     [HttpGet("getAll")]

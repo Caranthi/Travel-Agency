@@ -1,6 +1,8 @@
+using System;
 using System.Security.Cryptography;
 using System.Text;
 using Backend.Models;
+using Backend.Exceptions;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Services.Users;
@@ -23,10 +25,17 @@ public class UserService : IUserServie
             PasswordHash = CreatePasswordHash(password)
         };
 
-        await _context.Users.AddAsync(user);
-        await _context.SaveChangesAsync();
+        if (Validator.ValidateUser(user))
+        {
+            await _context.Users.AddAsync(user);
+            await _context.SaveChangesAsync();
 
-        return user;
+            return user;
+        }
+        else
+        {
+            throw new InvalidModelException("User is not valid!");
+        }
     }
 
     public async Task<User?> LogIn(string login, string password)
@@ -54,9 +63,16 @@ public class UserService : IUserServie
 
     private string CreatePasswordHash(string password)
     {
-        using var hash = new HMACSHA256(Encoding.UTF8.GetBytes(HashKey));
-        var hashedPassword = hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-        return Convert.ToBase64String(hashedPassword);
+        if (!password.Equals(""))
+        {
+            using var hash = new HMACSHA256(Encoding.UTF8.GetBytes(HashKey));
+            var hashedPassword = hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+            return Convert.ToBase64String(hashedPassword);
+        }
+        else
+        {
+            return "";
+        }
     }
 
     private bool VerifyPassword(string password, string passwordHash)

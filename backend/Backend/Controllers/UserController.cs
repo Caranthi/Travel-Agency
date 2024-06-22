@@ -1,4 +1,5 @@
 using Backend.Contracts.User;
+using Backend.Exceptions;
 using Backend.Services.Users;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +14,16 @@ public class UserController(IUserServie userServie) : ControllerBase
     [HttpPost("register")]
     public async Task<IActionResult> RegisterUser(UserSaveDto userSaveDto)
     {
-        var user = await _userService.CreateUser(userSaveDto.Login, userSaveDto.Password);
+        try
+        {
+            var user = await _userService.CreateUser(userSaveDto.Login, userSaveDto.Password);
 
-        return Ok(new { user.Id, user.Login });
+            return Ok(new { user.Id, user.Login });
+        }
+        catch (InvalidModelException e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 
     [HttpPost("login")]

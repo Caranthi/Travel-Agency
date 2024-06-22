@@ -1,3 +1,4 @@
+using Backend.Exceptions;
 using Backend.Models;
 
 namespace Backend.Services.Trips;
@@ -13,8 +14,15 @@ public class TripService : ITripService
 
     public async Task CreateTrip(Trip trip)
     {
-        await _context.Trips.AddAsync(trip);
-        await _context.SaveChangesAsync();
+        if (Validator.ValidateTrip(trip))
+        {
+            await _context.Trips.AddAsync(trip);
+            await _context.SaveChangesAsync();
+        }
+        else
+        {
+            throw new InvalidModelException("Trip is invalid!");
+        }
     }
 
     public Trip GetTrip(long id)
