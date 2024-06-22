@@ -17,10 +17,11 @@
     display: flex;
     flex-direction: column;
     border: solid var(--colour-primary);
-    width: 80%;
+    width: 84%;
     height: 800px;
     border-radius: 4px;
     margin-top: -1.5%;
+    margin-bottom: 1.5%;
 }
 
 .offerData {
@@ -36,8 +37,8 @@
 
 .image {
     background-image: url("../../../public/Akacje.jpg");
-    width: 108%;
-    height: 550px;
+    width: 95%;
+    height: 545px;
     border-radius: 0 0 500px 0;
 }
 
@@ -50,10 +51,10 @@
     color: var(--colour-text-primary-hover);
     font-size: var(--font-size-button);
     margin-top: 1.5%;
-    margin-bottom: 7%;
+    margin-bottom: 5%;
 }
 
-.freePlaces{
+.freePlaces {
     color: var(--colour-text-primary);
     font-size: var(--font-size-button);
     margin-top: 8%;

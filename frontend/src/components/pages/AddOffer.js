@@ -13,12 +13,10 @@ const AddOffer = () => {
     const pageTitle = 'DODAJ NOWĄ OFERTĘ';
     const titleLabel = "Tytuł:";
     const descriptionLabel = "Opis:";
-    const cityLabel = "Miasto:";
     const countryLabel = "Kraj:";
     const transportLabel = "Środek transportu:";
     const bargainLabel = "Promocja:";
     const priceLabel = "Cena za osobę dorosłą:";
-    const childrenPriceLabel = "Cena za dziecko:";
     const departureLabel = "Wyjazd z:"
     const defaultPlaceholder = "...";
     const transportOptions = ['Samolot', 'Autokar', 'Statek'];
@@ -26,22 +24,17 @@ const AddOffer = () => {
 
     let offer = {
         title: '',
-        city: '',
         country: '',
         departure: '',
         price: 0,
         transport: 'Plane',
         bargain: false,
         description: '',
-        childrenPrice: 0,
         travelTime: 1.0
     }
 
     const onTitleChange = (e) => {
         offer.title = e.target.value;
-    };
-    const onCityChange = (e) => {
-        offer.city = e.target.value;
     };
     const onCountryChange = (e) => {
         offer.country = e.target.value;
@@ -54,9 +47,6 @@ const AddOffer = () => {
     };
     const onDescriptionChange = (e) => {
         offer.description = e.target.value;
-    };
-    const onChildrenPriceChange = (e) => {
-        offer.childrenPrice = e.target.value;
     };
     const onTransportChange = (e) => {
         let transport;
@@ -112,18 +102,14 @@ const AddOffer = () => {
             </div>
             <div className="inputPair">
                 <InputWithLabel label={countryLabel} type="text" placeholder={defaultPlaceholder} onInput={onCountryChange}/>
-                <InputWithLabel label={cityLabel} type="text" placeholder={defaultPlaceholder} onInput={onCityChange}/>
+                <InputWithLabel label={departureLabel} type="text" placeholder={defaultPlaceholder} onInput={onDepartureChange}/>
             </div>
             <div className="inputPair">
                 <InputWithLabel label={priceLabel} type="number" placeholder="0" onInput={onPriceChange}/>
-                <InputWithLabel label={childrenPriceLabel} type="number" placeholder="0" onInput={onChildrenPriceChange}/>
-            </div>
-            <div className="inputPair">
                 <OptionWithLabel label={transportLabel} options={transportOptions} onChange={onTransportChange}/>
-                <OptionWithLabel label={bargainLabel} options={bargainOptions} onChange={onBargainChange}/>
             </div>
             <div className="inputPair">
-                <InputWithLabel label={departureLabel} type="text" placeholder={defaultPlaceholder} onInput={onDepartureChange}/>
+                <OptionWithLabel label={bargainLabel} options={bargainOptions} onChange={onBargainChange}/>
             </div>
         </div>
     );

@@ -19,14 +19,13 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
         {
             Title = trip.Title,
             Country = trip.Country,
-            City = trip.City,
             Departure = trip.Departure,
             Price = trip.Price,
             Transport = trip.Transport,
             Bargain = trip.Bargain,
             Description = trip.Description,
-            ChildrenPrice = trip.ChildrenPrice,
-            TravelTime = trip.TravelTime
+            TravelTime = trip.TravelTime,
+            Hotel = trip.Hotel
         };
         _tripService.CreateTrip(newTrip);
 
@@ -43,15 +42,14 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
         {
             tripResponseDtoList.Add(new TripResponseDto(trip.Id,
             trip.Title,
-            trip.City,
             trip.Country,
             trip.Departure,
             trip.Price,
             trip.Transport,
             trip.Bargain,
             trip.Description,
-            trip.ChildrenPrice,
-            trip.TravelTime
+            trip.TravelTime,
+            trip.Hotel
             ));
         }
         return Ok(tripResponseDtoList);
@@ -63,15 +61,14 @@ public class TripPreviewController(ITripService tripService) : ControllerBase
         var trip = _tripService.GetTrip(id);
         var tripResponseDto = new TripResponseDto(trip.Id,
             trip.Title,
-            trip.City,
             trip.Country,
             trip.Departure,
             trip.Price,
             trip.Transport,
             trip.Bargain,
             trip.Description,
-            trip.ChildrenPrice,
-            trip.TravelTime
+            trip.TravelTime,
+            trip.Hotel
             );
         return Ok(tripResponseDto);
     }

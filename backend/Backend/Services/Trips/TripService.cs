@@ -11,7 +11,7 @@ public class TripService : ITripService
         _context = context ?? throw new ArgumentNullException(nameof(context));
     }
 
-    public async void CreateTrip(Trip trip)
+    public async Task CreateTrip(Trip trip)
     {
         await _context.Trips.AddAsync(trip);
         await _context.SaveChangesAsync();

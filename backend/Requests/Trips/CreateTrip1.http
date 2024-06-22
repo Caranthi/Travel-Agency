@@ -3,13 +3,12 @@ Content-Type: application/json
 
 {
     "title": "Odwiedź stolicę Mexicas",
-    "city": "Tenochtitlan",
     "country": "Meksyk",
     "departure": "Łeba",
     "price": 1500000,
     "transport": "Ship",
     "bargain": true,
     "description": "Dawajcie wszystko czego chcą, albo was zabiją.",
-    "childrenPrice": 50000,
-    "travelTime": 800.0
+    "travelTime": 800.0,
+    "hotel": 1
 }

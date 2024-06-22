@@ -11,9 +11,9 @@ const Main = () => {
     let [recommendedOffer, setRecommenderOffer] = useState({});
 
     useEffect(() => {
-        axios.get(BACKEND_ADDRESS + '/trips/get/1').then((response) => {
+        axios.get(BACKEND_ADDRESS + '/trips/getAll').then((response) => {
             console.log('RecommendedOffer: ', response.data);
-            setRecommenderOffer(response.data);
+            setRecommenderOffer(response.data[0]);
         }).catch(error => {
             console.error(error);
         })

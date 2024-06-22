@@ -21,7 +21,41 @@ namespace Backend.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Backend.Models.TripPreview", b =>
+            modelBuilder.Entity("Backend.Models.Hotel", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("Stars")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Hotels");
+                });
+
+            modelBuilder.Entity("Backend.Models.Trip", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,13 +66,20 @@ namespace Backend.Migrations
                     b.Property<bool>("Bargain")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("Country")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.Property<string>("Departure")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("Location")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<long>("Hotel")
+                        .HasColumnType("bigint");
 
                     b.Property<int>("Price")
                         .HasColumnType("integer");
@@ -51,9 +92,33 @@ namespace Backend.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<double>("TravelTime")
+                        .HasColumnType("double precision");
+
                     b.HasKey("Id");
 
-                    b.ToTable("tripPreviews");
+                    b.ToTable("Trips");
+                });
+
+            modelBuilder.Entity("Backend.Models.User", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }
